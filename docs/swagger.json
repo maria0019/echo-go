@@ -1,0 +1,117 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a sample ECHO golang API.",
+        "title": "Swagger ECHO Go API",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {},
+        "version": "1.0"
+    },
+    "basePath": "/",
+    "paths": {
+        "/bye": {
+            "get": {
+                "description": "says bye to the user",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "say"
+                ],
+                "summary": "Say Bye",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/handler.SingleResp"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.SingleResp"
+                        }
+                    }
+                }
+            }
+        },
+        "/damn": {
+            "get": {
+                "description": "says damn to the user",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "say"
+                ],
+                "summary": "Say Damn",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/handler.SingleResp"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.SingleResp"
+                        }
+                    }
+                }
+            }
+        },
+        "/hello": {
+            "get": {
+                "description": "says hello to the user",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "say"
+                ],
+                "summary": "Say Hello",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/handler.SingleResp"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.SingleResp"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "handler.SingleResp": {
+            "type": "object",
+            "properties": {
+                "data": {},
+                "error": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "version": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,77 @@
+basePath: /
+definitions:
+  handler.SingleResp:
+    properties:
+      data: {}
+      error:
+        items:
+          type: string
+        type: array
+      version:
+        type: string
+    type: object
+info:
+  contact: {}
+  description: This is a sample ECHO golang API.
+  termsOfService: http://swagger.io/terms/
+  title: Swagger ECHO Go API
+  version: "1.0"
+paths:
+  /bye:
+    get:
+      consumes:
+      - application/json
+      description: says bye to the user
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.SingleResp'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.SingleResp'
+      summary: Say Bye
+      tags:
+      - say
+  /damn:
+    get:
+      consumes:
+      - application/json
+      description: says damn to the user
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.SingleResp'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.SingleResp'
+      summary: Say Damn
+      tags:
+      - say
+  /hello:
+    get:
+      consumes:
+      - application/json
+      description: says hello to the user
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handler.SingleResp'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.SingleResp'
+      summary: Say Hello
+      tags:
+      - say
+swagger: "2.0"

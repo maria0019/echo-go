@@ -21,11 +21,15 @@ func Init(conf *viper.Viper, logger *slog.Logger, loggerConfig slogecho.Config) 
 	//}))
 
 	sayHandler := handler.NewSay()
+	userHandler := handler.NewUser()
 
 	// Routes
 	e.GET("/hello", sayHandler.Hello)
 	e.GET("/bye", sayHandler.Bye)
 	e.GET("/damn", sayHandler.Damn)
+	e.GET("/user/:id", userHandler.Get)
+	e.POST("/user", userHandler.Create)
+	e.PUT("/user", userHandler.Update)
 
 	return e
 }

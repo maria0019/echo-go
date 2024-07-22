@@ -3,8 +3,6 @@ package handler
 import (
 	"errors"
 	"github.com/labstack/echo/v4"
-	slogecho "github.com/samber/slog-echo"
-	"log/slog"
 	"net/http"
 
 	_ "ego/docs"
@@ -28,8 +26,6 @@ func NewSay() Say {
 //	@Failure		500	{object}	SingleResp
 //	@Router			/hello [get]
 func (h Say) Hello(c echo.Context) error {
-	slogecho.AddCustomAttributes(c, slog.String("foo", "bar"))
-
 	return c.JSON(http.StatusOK, SingleResp{Data: "Hello!"})
 }
 

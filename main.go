@@ -2,11 +2,8 @@ package main
 
 import (
 	"ego/app"
-	"github.com/labstack/echo/v4"
-	echoSwagger "github.com/swaggo/echo-swagger"
-	"net/http"
-
 	_ "ego/docs"
+	echoSwagger "github.com/swaggo/echo-swagger"
 )
 
 //	@title			Swagger ECHO Go API
@@ -33,9 +30,4 @@ func main() {
 
 	// Start server
 	e.Logger.Fatal(e.Start(":4242"))
-}
-
-// Handler
-func hello(c echo.Context) error {
-	return c.String(http.StatusOK, "Hello, World!")
 }

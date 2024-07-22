@@ -95,9 +95,148 @@
                     }
                 }
             }
+        },
+        "/user": {
+            "put": {
+                "description": "update user",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "user"
+                ],
+                "summary": "Update user",
+                "parameters": [
+                    {
+                        "maxLength": 100,
+                        "minLength": 1,
+                        "type": "string",
+                        "description": "string valid",
+                        "name": "firstName",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "maxLength": 100,
+                        "minLength": 1,
+                        "type": "string",
+                        "description": "string valid",
+                        "name": "lastName",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/handler.SingleResp"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.SingleResp"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "create user",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "user"
+                ],
+                "summary": "Create user",
+                "parameters": [
+                    {
+                        "description": "user entity",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/handler.UserRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/handler.SingleResp"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.SingleResp"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/{id}": {
+            "get": {
+                "description": "get user",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "user"
+                ],
+                "summary": "Get user",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "User ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/handler.SingleResp"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/handler.SingleResp"
+                        }
+                    }
+                }
+            }
         }
     },
     "definitions": {
+        "entity.User": {
+            "type": "object",
+            "properties": {
+                "firstName": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "lastName": {
+                    "type": "string"
+                }
+            }
+        },
         "handler.SingleResp": {
             "type": "object",
             "properties": {
@@ -109,6 +248,17 @@
                     }
                 },
                 "version": {
+                    "type": "string"
+                }
+            }
+        },
+        "handler.UserRequest": {
+            "type": "object",
+            "properties": {
+                "firstName": {
+                    "type": "string"
+                },
+                "lastName": {
                     "type": "string"
                 }
             }
